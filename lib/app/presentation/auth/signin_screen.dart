@@ -4,6 +4,7 @@ import 'package:yone_app/app/constants.dart';
 import 'package:yone_app/app/controllers/country_code.dart';
 
 import '../../components/primary_button.dart';
+import '../main/home_page.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
             return Column(
               children: [
                 const SizedBox(height: kDefaultPadding * 5),
-                Text(
+                const Text(
                   'Content de vous revoir',
                   style: TextStyle(
                     fontSize: kDefaultPadding,
@@ -46,7 +47,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: Container(
                           height: 55,
                           width: 105,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.black12,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
@@ -62,7 +63,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   controller.country?.flagEmoji ?? '',
                                 ),
                                 const SizedBox(width: kDefaultPadding - 15),
-                                Text(
+                                const Text(
                                   '+',
                                 ),
                                 Text(
@@ -79,7 +80,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           height: 55,
                           child: TextFormField(
                             keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               hintText: '1868985423',
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.only(
@@ -101,7 +102,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               ),
                               enabled: true,
                             ),
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(color: Colors.black),
                           ),
                         ),
                       )
@@ -119,19 +120,19 @@ class _SignInScreenState extends State<SignInScreen> {
                       hintText: 'Code secret',
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.blue,
                         ),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.grey,
                         ),
                       ),
                       enabled: true,
                     ),
-                    style: TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Colors.black),
                   ),
                 ),
                 const SizedBox(height: kDefaultPadding),
@@ -143,7 +144,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
+                      children: const [
                         Text(
                           'Mot de passe oublié ?',
                           style: TextStyle(
@@ -161,7 +162,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     childText: 'Se Connector',
                     textColor: Colors.white,
                     buttonColor: Colors.red,
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(() => const HomePage());
+                    },
                   ),
                 ),
               ],
