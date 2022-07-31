@@ -19,8 +19,8 @@ class OnboardScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 100),
-              child: Image.network(
-                'https://picsum.photos/id/1/200/300',
+              child: Image.asset(
+                'assets/logos/logo.jpg',
                 height: 120,
               ),
             ),

@@ -25,7 +25,12 @@ class _SignInScreenState extends State<SignInScreen> {
           builder: (controller) {
             return Column(
               children: [
-                const SizedBox(height: kDefaultPadding * 5),
+                const SizedBox(height: kDefaultPadding * 4),
+                Image.asset(
+                  'assets/logos/logo.jpg',
+                  height: 120,
+                ),
+                const SizedBox(height: kDefaultPadding),
                 const Text(
                   'Content de vous revoir',
                   style: TextStyle(

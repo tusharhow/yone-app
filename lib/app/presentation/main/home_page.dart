@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yone_app/app/components/primary_button.dart';
@@ -10,11 +11,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List imgList = [
+      "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFubmVyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFubmVyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFubmVyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+      "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFubmVyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
+    ];
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.red,
-          leading: Icon(Icons.menu),
+          leading: Image.asset(
+            'assets/logos/logo.jpg',
+            height: 120,
+          ),
           actions: [
             IconButton(
               icon: const Icon(Icons.settings),
@@ -27,6 +37,39 @@ class HomePage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              const SizedBox(height: kDefaultPadding),
+              SizedBox(
+                height: 180,
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    height: MediaQuery.of(context).size.height / 1.20,
+                    aspectRatio: 16 / 9,
+                    viewportFraction: 0.9,
+                    initialPage: 0,
+                    enableInfiniteScroll: false,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 3),
+                    autoPlayAnimationDuration:
+                        const Duration(milliseconds: 800),
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enlargeCenterPage: true,
+                    scrollDirection: Axis.horizontal,
+                  ),
+                  items: imgList.map((imgLink) {
+                    print(imgLink);
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Image(
+                          image: NetworkImage(imgLink),
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        );
+                      },
+                    );
+                  }).toList(),
+                ),
+              ),
               const SizedBox(height: kDefaultPadding * 2),
               Padding(
                 padding:
