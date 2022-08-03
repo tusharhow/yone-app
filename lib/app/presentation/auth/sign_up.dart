@@ -27,27 +27,28 @@ class SignupScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: kDefaultPadding),
+              Image.asset(
+                'assets/logos/logo.jpg',
+                height: 120,
+              ),
+              const SizedBox(height: kDefaultPadding),
               TextFormField(
                 decoration: InputDecoration(
-                  labelText: 'Email',
+                  labelText: 'Full Name',
                   labelStyle: TextStyle(
                     fontSize: kDefaultPadding - 5,
                     fontWeight: FontWeight.bold,
                   ),
-                  enabledBorder: UnderlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 0,
+                      color: Colors.blue,
                     ),
                   ),
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 0,
+                      color: Colors.blue,
                     ),
                   ),
-                  filled: true,
-                  fillColor: Colors.black12,
                 ),
               ),
               const SizedBox(height: kDefaultPadding),
@@ -58,20 +59,16 @@ class SignupScreen extends StatelessWidget {
                     fontSize: kDefaultPadding - 5,
                     fontWeight: FontWeight.bold,
                   ),
-                  enabledBorder: UnderlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 0,
+                      color: Colors.blue,
                     ),
                   ),
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 0,
+                      color: Colors.blue,
                     ),
                   ),
-                  filled: true,
-                  fillColor: Colors.black12,
                 ),
               ),
               const SizedBox(height: kDefaultPadding),
@@ -82,47 +79,36 @@ class SignupScreen extends StatelessWidget {
                     fontSize: kDefaultPadding - 5,
                     fontWeight: FontWeight.bold,
                   ),
-                  enabledBorder: UnderlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 0,
+                      color: Colors.blue,
                     ),
                   ),
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 0,
+                      color: Colors.blue,
                     ),
                   ),
-                  filled: true,
-                  fillColor: Colors.black12,
                 ),
               ),
               const SizedBox(height: kDefaultPadding),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Full Name',
-                  labelStyle: TextStyle(
-                    fontSize: kDefaultPadding - 5,
-                    fontWeight: FontWeight.bold,
+              Row(
+                children: [
+                  Checkbox(
+                    value: false,
+                    onChanged: (value) {},
                   ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 0,
+                  const Expanded(
+                    child: Text(
+                      "By clicking Sign Up, you agree to our Terms of Service and Privacy Policy.",
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
                     ),
                   ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 0,
-                    ),
-                  ),
-                  filled: true,
-                  fillColor: Colors.black12,
-                ),
+                ],
               ),
-              const SizedBox(height: kDefaultPadding * 3),
+              const SizedBox(height: kDefaultPadding),
               Container(
                 width: double.infinity,
                 height: 50,
@@ -142,7 +128,10 @@ class SignupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              const SizedBox(
+                height: kDefaultPadding,
+              ),
             ],
           ),
         ),
