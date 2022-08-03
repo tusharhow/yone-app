@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yone_app/app/components/primary_button.dart';
+import 'package:yone_app/app/presentation/auth/sign_up.dart';
 import '../../constants.dart';
 import '../auth/signin_screen.dart';
 
@@ -12,7 +13,7 @@ class OnboardScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.red,
+        backgroundColor: kPrimaryColor,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -29,8 +30,10 @@ class OnboardScreen extends StatelessWidget {
               child: ReusablePrimaryButton(
                 childText: 'Create an Account',
                 textColor: Colors.white,
-                buttonColor: Colors.red,
-                onPressed: () {},
+                buttonColor: kPrimaryColor,
+                onPressed: () {
+                  Get.to(const SignupScreen());
+                },
               ),
             ),
             const SizedBox(height: kDefaultPadding),
@@ -38,7 +41,7 @@ class OnboardScreen extends StatelessWidget {
               child: ReusablePrimaryButton(
                 childText: 'Log In',
                 textColor: Colors.white,
-                buttonColor: Colors.red,
+                buttonColor: kPrimaryColor,
                 onPressed: () {
                   Get.to(() => const SignInScreen());
                 },

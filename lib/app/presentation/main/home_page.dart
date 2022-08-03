@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yone_app/app/components/primary_button.dart';
+import 'package:yone_app/app/presentation/payment/transaction_screen.dart';
+import 'package:yone_app/app/presentation/user/my_account.dart';
 
 import '../../constants.dart';
 import '../settings/setting_page.dart';
@@ -11,6 +13,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     List imgList = [
       "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFubmVyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
       "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFubmVyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
@@ -18,21 +21,50 @@ class HomePage extends StatelessWidget {
       "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YmFubmVyfGVufDB8fDB8fA%3D%3D&w=1000&q=80",
     ];
     return Scaffold(
+        key: _scaffoldKey,
+        drawer: Drawer(
+            child: ListView(children: <Widget>[
+          const SizedBox(height: 20 + 10),
+          Image.asset(
+            'assets/logos/logo.jpg',
+            height: 100,
+            width: 100,
+          ),
+          ListTile(
+            title: const Text("My Profile"),
+            onTap: () {
+              Get.to(const MyProfile());
+            },
+          ),
+          ListTile(
+            title: const Text("Transactions"),
+            onTap: () {
+              Get.to(const TransactionScreen());
+            },
+          ),
+          ListTile(
+            title: const Text("Settings"),
+            onTap: () {
+              Get.to(const SettingPage());
+            },
+          ),
+          ListTile(
+            title: const Text("Logout"),
+            onTap: () {
+              Get.offAllNamed("/login");
+            },
+          ),
+        ])),
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.red,
-          leading: Image.asset(
-            'assets/logos/logo.jpg',
-            height: 120,
+          backgroundColor: kPrimaryColor,
+          leading: IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              _scaffoldKey.currentState!.openDrawer();
+            },
           ),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.settings),
-              onPressed: () {
-                Get.to(() => const SettingPage());
-              },
-            ),
-          ],
+          title: const Text("Yone"),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -57,7 +89,6 @@ class HomePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                   ),
                   items: imgList.map((imgLink) {
-                    print(imgLink);
                     return Builder(
                       builder: (BuildContext context) {
                         return Image(
@@ -221,7 +252,7 @@ class HomePage extends StatelessWidget {
                     child: Container(
                       height: 70,
                       width: 70,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white,
                           boxShadow: [
@@ -231,10 +262,8 @@ class HomePage extends StatelessWidget {
                               blurRadius: 10,
                             ),
                           ]),
-                      child: Image.asset(
-                        'assets/logos/postman.png',
-                        height: 45,
-                        width: 45,
+                      child: const CircleAvatar(
+                        backgroundImage: AssetImage('assets/logos/wave.jpeg'),
                       ),
                     ),
                   ),
@@ -247,10 +276,10 @@ class HomePage extends StatelessWidget {
                 child: ReusablePrimaryButton(
                   childText: 'Send',
                   textColor: Colors.white,
-                  buttonColor: Colors.red,
+                  buttonColor: kSecondaryColor,
                   onPressed: () {},
                 ),
-              )
+              ),
             ],
           ),
         ));

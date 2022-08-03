@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:yone_app/app/presentation/auth/sign_up.dart';
 import 'package:yone_app/app/presentation/main/home_page.dart';
-
 import 'app/presentation/main/onboard_screen.dart';
 
 void main() {
@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Yone',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const OnboardScreen(),
     );
   }
 }

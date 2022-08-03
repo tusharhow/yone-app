@@ -166,7 +166,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: ReusablePrimaryButton(
                     childText: 'Se Connector',
                     textColor: Colors.white,
-                    buttonColor: Colors.red,
+                    buttonColor: Color(0xffffc154),
                     onPressed: () {
                       Get.to(() => const HomePage());
                     },
