@@ -168,7 +168,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     textColor: Colors.white,
                     buttonColor: Color(0xffffc154),
                     onPressed: () {
-                      Get.to(() => const HomePage());
+                      Get.to(() =>  HomePage());
                     },
                   ),
                 ),
